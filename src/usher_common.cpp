@@ -108,6 +108,8 @@ int usher_common(std::string dout_filename, std::string outdir, uint32_t max_tre
 
     optimal_trees.emplace_back(std::move(*loaded_MAT));
     MAT::Tree* T = &optimal_trees[0];
+    fix_parent(T);
+    fprintf(stderr, "just fixed the parents for the tree.\n");
     // Since --multiple-placements can result in trees with different parsimony
     // scores, the vector below will be used to maintain the final parsimony
     // score of each tree
